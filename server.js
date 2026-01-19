@@ -18,8 +18,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://surveyfrontend-five.vercel.app",
-      "https://www.survey-api.kantipurride.com",
-      "https://survey-api.kantipurride.com",
+      "https://survey.kantipurride.com",
     ],
     credentials: true,
   }),
