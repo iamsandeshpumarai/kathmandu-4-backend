@@ -16,7 +16,6 @@ app.set("trust proxy", 1);
 app.use(
   cors({
     origin: "*",
-    credentials: true,
   }),
 );
 app.use(cookieParser());
