@@ -15,7 +15,8 @@ app.set("trust proxy", 1);
 // Middleware - must be before routes
 app.use(
   cors({
-    origin: "*",
+    origin: ["https://survey.kantipurride.com"],
+    credentials: true,
   }),
 );
 app.use(cookieParser());
