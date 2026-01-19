@@ -18,8 +18,8 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://surveyfrontend-five.vercel.app",
-      "https://www.survey.kantipurride.com",
-      "https://survey.kantipurride.com",
+      "https://www.survey-api.kantipurride.com",
+      "https://survey-api.kantipurride.com",
     ],
     credentials: true,
   }),
@@ -52,7 +52,6 @@ app.get("/api/check", Check, async (req, res) => {
     res.status(200).json(user);
   }
 });
-
 
 // Start server
 const PORT = process.env.PORT || 5001;
