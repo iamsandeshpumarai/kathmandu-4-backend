@@ -11,5 +11,5 @@ FROM node:18-alpine
 WORKDIR /app
 COPY --from=build /app /app
 ENV NODE_ENV=production
-EXPOSE 8014
+EXPOSE 8015
 CMD ["node", "server.js"]
