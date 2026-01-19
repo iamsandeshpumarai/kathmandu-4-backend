@@ -15,11 +15,7 @@ app.set("trust proxy", 1);
 // Middleware - must be before routes
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://surveyfrontend-five.vercel.app",
-      "https://survey.kantipurride.com",
-    ],
+    origin: "*",
     credentials: true,
   }),
 );
