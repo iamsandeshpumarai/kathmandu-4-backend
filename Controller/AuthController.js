@@ -21,8 +21,7 @@ secure:true,
 };
 
 const RegisterAdmin = async (req, res) => {
-  console.log("iam insdie the register amdin")
-  console.log(req.body)
+
   try {
     const { email, password, username } = req.body;
     const existingAdmin = await UserModel.findOne({ email });
