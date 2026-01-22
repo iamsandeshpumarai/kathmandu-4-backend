@@ -1,21 +1,22 @@
-require("dotenv").config();
-const express = require("express");
-const mongoose = require("mongoose");
-const surveyRoute = require("./Routes/SurveyRoute");
-const adminRoute = require("./Routes/AdminRoute");
-const userRoute = require("./Routes/UserRoutes");
+require('dotenv').config()
+const express = require('express');
+const mongoose = require('mongoose');
+const surveyRoute = require('./Routes/SurveyRoute')
+const adminRoute = require('./Routes/AdminRoute')
+const userRoute = require('./Routes/UserRoutes')
 const app = express();
-const cors = require("cors");
-const { Check } = require("./Middleware/Checkauth");
-const cookieParser = require("cookie-parser");
-const userModel = require("./Models/UserModel");
+const cors = require('cors');
+const { Check } = require('./Middleware/Checkauth');
+const cookieParser = require('cookie-parser');
+const userModel = require('./Models/UserModel');
+app.use(cookieParser());
 
 app.set("trust proxy", 1);
 
 // Middleware - must be before routes
 app.use(
   cors({
-    origin: ["https://survey.kantipurride.com"],
+    origin: ["https://survey.kantipurride.com",'http://localhost:5173','http://localhost:5174'],
     credentials: true,
   }),
 );
@@ -36,6 +37,7 @@ mongoose
 app.use("/api/survey", surveyRoute);
 app.use("/api/admin", adminRoute);
 app.use("/api/user", userRoute);
+app.use('/api/content',require('./Routes/ContentRoute'))
 
 app.get("/api/check", Check, async (req, res) => {
   console.log(req.id);
@@ -49,7 +51,7 @@ app.get("/api/check", Check, async (req, res) => {
 });
 
 // Start server
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
