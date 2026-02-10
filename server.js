@@ -9,6 +9,7 @@ const cors = require('cors');
 const { Check } = require('./Middleware/Checkauth');
 const cookieParser = require('cookie-parser');
 const userModel = require('./Models/UserModel');
+const SurveyQuestionBankModel = require('./Models/SurveyQuestion');
 app.use(cookieParser());
 
 app.set("trust proxy", 1);
@@ -40,8 +41,7 @@ app.use("/api/user", userRoute);
 app.use('/api/content',require('./Routes/ContentRoute'))
 
 app.get("/api/check", Check, async (req, res) => {
-  console.log(req.id);
-  const user = await userModel.findById(req.id).select("-password");
+const user = await userModel.findById(req.id).select("-password");
   if (!user) {
     return res.status(400).json({ message: "User not Found" });
   }
@@ -49,6 +49,8 @@ app.get("/api/check", Check, async (req, res) => {
     res.status(200).json(user);
   }
 });
+
+
 
 // Start server
 const PORT = process.env.PORT || 5000;

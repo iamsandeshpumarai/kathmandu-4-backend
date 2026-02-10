@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // Schema for individual question answers
 const answerSchema = new mongoose.Schema({
-  questionId: { type: String, required: true }, // e.g., "q1"
+ // e.g., "q1"
   questionText: { type: String, required: true },
   // Using Mixed because 'checkbox' is a String, 
   // but your 'text' questions are Objects { "Option Label": "User Value" }

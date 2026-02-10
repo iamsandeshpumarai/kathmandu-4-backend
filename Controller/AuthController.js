@@ -21,8 +21,7 @@ secure:true,
 };
 
 const RegisterAdmin = async (req, res) => {
-  console.log("iam insdie the register amdin")
-  console.log(req.body)
+
   try {
     const { email, password, username } = req.body;
     const existingAdmin = await UserModel.findOne({ email });
@@ -45,14 +44,14 @@ const hashedpassword = await bcrypt.hash(password,10)
 }
 
 const UserLogin = async (req, res) => {
-  console.log(req.body)
+
   try {
     const { email, password } = req.body;
     
     // 1. Find user by email
     const user = await UserModel.findOne({ email });
 
-    console.log(user)
+
     if (!user) {
       return res.status(400).json({ message: "Invalid Email or Password" });
     }
