@@ -9,7 +9,7 @@ const cors = require('cors');
 const { Check } = require('./Middleware/Checkauth');
 const cookieParser = require('cookie-parser');
 const userModel = require('./Models/UserModel');
-const SurveyQuestionBankModel = require('./Models/SurveyQuestion');
+
 app.use(cookieParser());
 
 app.set("trust proxy", 1);

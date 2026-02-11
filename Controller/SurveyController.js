@@ -40,8 +40,8 @@ const { personalInfo, surveys, submittedBy } = req.body.data;
 
 const getSurveyData = async (req, res) => {
     try {
-      const userId = req.id;
-        const userdata = await UserSurvey.find({submittedBy:userId})
+  
+        const userdata = await UserSurvey.find({})
         
         // 1. Critical Fix: Added 'return' so execution stops here if ID is wrong
         if (!userdata) {
