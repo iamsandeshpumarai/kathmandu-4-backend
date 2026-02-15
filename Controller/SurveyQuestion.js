@@ -127,10 +127,13 @@ const updateTopic = async (req, res) => {
 
 
 const getSurveyQuestion = async(req,res)=>{
-  const {id} = req.params
-  console.log(id ,'is the surveyquestion id ')
+ 
   try{
 const surveyQuestion = await SurveyQuestionBankModel.findById(id).lean()
+
+if(!surveyQuestion) {
+  return res.status(401).json({message:"Survey Question cant be found"})
+}
 
 res.status(200).json({surveyQuestion})
   }
@@ -140,4 +143,23 @@ res.status(200).json({surveyQuestion})
   }
 }
 
-module.exports = {getSurveyQuestionBank,getSurveylist,changeStatus,deleteSurveyQuestion,updateTopic,CreateSurveyQuestion,getSurveyQuestion}
+
+const updateSurveyQuestion = async(req,res)=>{
+  const {id} = req.params
+  const data = req.body
+
+  try{
+   const surveyId = await SurveyQuestionBankModel.findById(id)
+   if(!surveyId){
+    return res.status(400).json({message:"Survey Not Found"})
+   }
+ const data =   await SurveyQuestionBankModel.findByIdAndUpdate(id,{...req.body})
+
+res.status(200).json({message:"updated"})
+  }
+  catch(err){
+    console.log(err.message)
+    res.send(500).json({message:err.message})
+  }
+}
+module.exports = {getSurveyQuestionBank,getSurveylist,changeStatus,deleteSurveyQuestion,updateTopic,CreateSurveyQuestion,getSurveyQuestion,updateSurveyQuestion}

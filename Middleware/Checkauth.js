@@ -26,6 +26,7 @@ const Check = (req, res, next) => {
 
 const CheckAdmin = async (req, res, next) => {
 
+
   try {
     const user = await UserModel.findById(req.id);
 
