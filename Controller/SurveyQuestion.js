@@ -125,4 +125,19 @@ const updateTopic = async (req, res) => {
   }
 };
 
-module.exports = {getSurveyQuestionBank,getSurveylist,changeStatus,deleteSurveyQuestion,updateTopic,CreateSurveyQuestion}
+
+const getSurveyQuestion = async(req,res)=>{
+  const {id} = req.params
+  console.log(id ,'is the surveyquestion id ')
+  try{
+const surveyQuestion = await SurveyQuestionBankModel.findById(id).lean()
+
+res.status(200).json({surveyQuestion})
+  }
+  catch(err){
+    console.log(err)
+    res.status(500).json({message:err.message})
+  }
+}
+
+module.exports = {getSurveyQuestionBank,getSurveylist,changeStatus,deleteSurveyQuestion,updateTopic,CreateSurveyQuestion,getSurveyQuestion}
