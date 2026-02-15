@@ -127,7 +127,7 @@ const updateTopic = async (req, res) => {
 
 
 const getSurveyQuestion = async(req,res)=>{
- 
+const {id} = req.params
   try{
 const surveyQuestion = await SurveyQuestionBankModel.findById(id).lean()
 
