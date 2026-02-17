@@ -18,7 +18,7 @@ app.set("trust proxy", 1);
 app.use(
   cors({
 
-    origin: ["https://survey.kantipurride.com",'http://localhost:5173','https://www.techsurveynepal.com','https://techsurveynepal.com','https://survey-one-green.vercel.app','https://bhaktapur.techsurveynepal.com','https://chitwan3.techsurveynepal.com',"https://chitwanfrontend-git-main-sandeshrais-projects.vercel.app","https://kathmandusurvey.vercel.app","https://kathmandu-3-frotnend.vercel.app","https://kathmandu-3-frotnend.vercel.app"],
+    origin: ["https://survey.kantipurride.com",'http://localhost:5173','https://www.techsurveynepal.com','https://techsurveynepal.com','https://kathamandu-4-frontend.vercel.app'],
     credentials: true,
   }),
 );
