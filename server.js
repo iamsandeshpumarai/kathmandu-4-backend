@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 
 // Connect to MongoDB
 mongoose
-  .connect("mongodb+srv://kathamandusurvey:rai@cluster0.xygaeln.mongodb.net/Kathamandu-4?appName=Cluster0")
+  .connect("mongodb+srv://kathamandusurvey:rai@cluster0.xygaeln.mongodb.net/Kathamandu-3?appName=Cluster0")
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log("MongoDB connection error:", err));
 
