@@ -3,7 +3,7 @@ const SurveyQuestionBankModel = require('./Models/SurveyQuestion')
 const dataSurvey = require('./surveyquestiondata')
 const userModel = require('./Models/UserModel')
 
-mongoose.connect("mongodb+srv://kathamandusurvey:rai@cluster0.xygaeln.mongodb.net/Kathamandu-3?appName=Cluster0").then(()=>{
+mongoose.connect("mongodb+srv://kathamandusurvey:rai@cluster0.xygaeln.mongodb.net/Kathamandu-4?appName=Cluster0").then(()=>{
     console.log('connected to the db')
 }).catch((err)=>{
     console.log(err.message)
