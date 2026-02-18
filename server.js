@@ -18,7 +18,7 @@ app.set("trust proxy", 1);
 app.use(
   cors({
 
-    origin: ["kathmandu4.techsurveynepal.com","https://survey.kantipurride.com",'http://localhost:5173','https://www.techsurveynepal.com','https://techsurveynepal.com','https://kathamandu-4-frontend.vercel.app'],
+    origin:"https://kathmandu4.techsurveynepal.com",
     credentials: true,
   }),
 );
